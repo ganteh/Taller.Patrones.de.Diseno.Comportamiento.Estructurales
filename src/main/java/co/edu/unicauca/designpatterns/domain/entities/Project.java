@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package co.edu.unicauca.designpatterns.domain.entities;
 
 import co.edu.unicauca.designpatterns.domain.state.PendingState;
@@ -27,14 +23,18 @@ public class Project {
     public ProjectState getState() {
         return state;
     }
+    
+    public String getTitle() {
+        return title;
+    }
+    
+    public String getDescription() {
+        return title;
+    }
 
     // Métodos que delegan al estado actual
     public void approve() { state.approve(this); }
     public void reject() { state.reject(this); }
     public void assign() { state.assign(this); }
     public void complete() { state.complete(this); }
-
-    public String getTitle() {
-        return title;
-    }
 }

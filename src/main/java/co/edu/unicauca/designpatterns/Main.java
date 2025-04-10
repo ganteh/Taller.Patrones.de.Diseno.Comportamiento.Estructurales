@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package co.edu.unicauca.designpatterns;
 
+import co.edu.unicauca.designpatterns.Decorator.PriorityProject;
 import co.edu.unicauca.designpatterns.TemplateMethod.BusinessEvaluator;
 import co.edu.unicauca.designpatterns.TemplateMethod.TechnicalEvaluator;
 import co.edu.unicauca.designpatterns.domain.entities.Project;
@@ -36,5 +33,17 @@ public class Main {
 
         BusinessEvaluator businessEvaluator = new BusinessEvaluator();
         businessEvaluator.evaluate(project);
+        
+        //Prueba Patron Decorator
+        System.out.println("\n");
+        Project project2 = new Project("Sistema de Gestion de Equipos de Futbol");
+        
+        System.out.println("===== PROBANDO EL PATRON DECORADOR =====");
+        // Aplicar el decorador PriorityProject al objeto project2
+        PriorityProject priorityProject = new PriorityProject(project2);
+        System.out.println("- Descripcion inicial/original del proyecto: " + project2.getDescription());
+        System.out.println("- Descripcion del proyecto despues del patron Decorator: " + priorityProject.getDescription());
+        
+        
     }
 }
