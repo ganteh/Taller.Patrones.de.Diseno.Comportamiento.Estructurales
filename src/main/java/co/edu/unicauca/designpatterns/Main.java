@@ -4,6 +4,8 @@
 
 package co.edu.unicauca.designpatterns;
 
+import co.edu.unicauca.designpatterns.TemplateMethod.BusinessEvaluator;
+import co.edu.unicauca.designpatterns.TemplateMethod.TechnicalEvaluator;
 import co.edu.unicauca.designpatterns.domain.entities.Project;
 
 /**
@@ -28,5 +30,11 @@ public class Main {
         
         project.complete();
         
+        //Patrón Template Method
+        System.out.println("TEMPLAE METHOD PATTERN");
+        TechnicalEvaluator technicalEvaluator = new TechnicalEvaluator(); technicalEvaluator.evaluate(project);
+
+        BusinessEvaluator businessEvaluator = new BusinessEvaluator();
+        businessEvaluator.evaluate(project);
     }
 }
