@@ -1,6 +1,7 @@
 package co.edu.unicauca.designpatterns;
 
 import co.edu.unicauca.designpatterns.Decorator.PriorityProject;
+import co.edu.unicauca.designpatterns.Facade.Facade;
 import co.edu.unicauca.designpatterns.TemplateMethod.BusinessEvaluator;
 import co.edu.unicauca.designpatterns.TemplateMethod.TechnicalEvaluator;
 import co.edu.unicauca.designpatterns.domain.entities.Project;
@@ -34,7 +35,7 @@ public class Main {
         BusinessEvaluator businessEvaluator = new BusinessEvaluator();
         businessEvaluator.evaluate(project);
         
-        //Prueba Patron Decorator
+        //Prueba Patron DECORATOR
         System.out.println("\n");
         Project project2 = new Project("Sistema de Gestion de Equipos de Futbol");
         
@@ -44,6 +45,18 @@ public class Main {
         System.out.println("- Descripcion inicial/original del proyecto: " + project2.getDescription());
         System.out.println("- Descripcion del proyecto despues del patron Decorator: " + priorityProject.getDescription());
         
+        //Prueba Patron FACADE
+        System.out.println("\n");
+        System.out.println("===== PROBANDO EL PATRON FACADE =====");
+        // Crear una instancia de la fachada
+        Facade platform = new Facade();
+        
+        //Se utiliza la fachada para gestionar el proyecto
+        System.out.println("- Gestion del proyecto base/original:");
+        platform.manageProject(project2);
+        
+        System.out.println("\n- Gestion de proyectos prioritarios:");
+        platform.manageProject(priorityProject);
         
     }
 }
