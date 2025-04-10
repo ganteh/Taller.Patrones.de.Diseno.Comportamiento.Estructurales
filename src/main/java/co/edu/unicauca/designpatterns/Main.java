@@ -4,6 +4,7 @@ import co.edu.unicauca.designpatterns.Decorator.PriorityProject;
 import co.edu.unicauca.designpatterns.Facade.Facade;
 import co.edu.unicauca.designpatterns.TemplateMethod.BusinessEvaluator;
 import co.edu.unicauca.designpatterns.TemplateMethod.TechnicalEvaluator;
+import co.edu.unicauca.designpatterns.adapter.*;
 import co.edu.unicauca.designpatterns.domain.entities.Project;
 
 /**
@@ -34,6 +35,14 @@ public class Main {
 
         BusinessEvaluator businessEvaluator = new BusinessEvaluator();
         businessEvaluator.evaluate(project);
+        
+        //Patrón adapter
+        System.out.println("ADAPTER PATTERN");
+        ExternalProjectService externalService = new ExternalProjectService();
+        ProjectDataProvider adapter = new ProjectAdapter(externalService);
+        Project adaptedProject = adapter.getProject();
+
+        System.out.println("Project created from external service: " + adaptedProject.getTitle());
         
         //Prueba Patron DECORATOR
         System.out.println("\n");
